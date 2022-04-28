@@ -13,6 +13,6 @@ def do_pack():
     create the tgz archive
     """
     dateNow = datetime.now()
-    archiveName = f'web_static_{dateNow.strftime("%Y%m%d%H%M%S")}.tgz'
+    archiveName = 'web_static_{}.tgz'.format(dateNow.strftime("%Y%m%d%H%M%S"))
     local('mkdir -p versions')
-    local(f'tar -cvzf versions/{archiveName} web_static')
+    local('tar -cvzf versions/{} web_static'.format(archiveName))
