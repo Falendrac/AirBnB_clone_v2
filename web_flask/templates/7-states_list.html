@@ -5,8 +5,10 @@
     </HEAD>
     <BODY>
         <H1>States</H1>
+        <UL>
         {% for key in data.keys()|sort(attribute='name') %}
-            <li>{{ data[key].id }}: <B>{{ data[key].name }}</B></li>
+            <LI>{{ data[key].id }}: <B>{{ data[key].name }}</B></LI>
         {% endfor %}
+        </UL>
     </BODY>
 </HTML>
