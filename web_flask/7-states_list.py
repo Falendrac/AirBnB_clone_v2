@@ -9,6 +9,7 @@ from models.state import State
 app = Flask(__name__)
 data = storage.all()
 
+
 @app.teardown_appcontext
 def teardown(exception):
     storage.close()
