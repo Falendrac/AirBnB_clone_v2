@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>AirBnB Clone</title>
+        <link rel="stylesheet" href="static/styles/4-common.css">
+        <link rel="stylesheet" href="static/styles/3-header.css">
+        <link rel="stylesheet" href="static/styles/3-footer.css">
+        <link rel="stylesheet" href="static/styles/6-filters.css">
+        <link rel="icon" href="static/images/icon.png">
+    </head>
+
+    <body>
+
+        <header>
+            <div class="logo"></div>
+        </header>
+
+        <div class="container">
+            <section class="filters">
+
+                <div class="locations">
+                    <h3>States</h3>
+                    <h4>&nbsp;</h4>
+
+                    <ul class="popover">
+                        {% for key in data_state.keys()|sort(attribute='name') %}
+                        <LI><h2>{{ data_state[key].name }}</h2>
+                            {% if data_state[key].cities|length > 0 %}
+                                <UL>
+                                    {% for city in data_state[key].cities|sort(attribute='name') %}
+                                        <LI>{{ city.name }}</LI>
+                                    {% endfor %}
+                                </UL>
+                            {% endif %}
+                        </LI>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="amenities">
+                    <h3>Amenities</h3>
+                    <h4>&nbsp;</h4>
+
+                    <ul class="popover">
+                        {% for key in data_amenities.keys()|sort(attribute='name') %}
+                            <LI>{{ data_amenities[key].name }}</LI>
+                        {% endfor %}
+                    </ul>
+
+                </div>
+                
+                <div class="voidsearch"></div>
+
+                <div class="button">
+                    Search
+                </div>
+            </section>
+        </div>
+
+        <footer>
+            <p>Best School</p>
+        </footer>
+
+    </body>
+    
+</html>
