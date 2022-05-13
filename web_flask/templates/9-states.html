@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        {% if data|length > 1 %}
+            <H1>States</H1>
+            <UL>
+            {% for key in data.keys()|sort(attribute='name') %}
+                <LI>{{ data[key].id }}: <B>{{ data[key].name }}</B></LI>
+            {% endfor %}
+            </UL>
+        {% elif data|length == 1%}
+            {% for key in data.keys() %}
+                <H1>State: {{ data[key].name }}</H1>
+                <H3>Cities:</H3>
+                <UL>
+                    {% for city in data[key].cities|sort(attribute='name') %}
+                        <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
+                    {% endfor %}
+                </UL>
+            {% endfor %}
+        {% else %}
+            <H1>Not found!</H1>
+        {% endif %}
+    </BODY>
+</HTML>
