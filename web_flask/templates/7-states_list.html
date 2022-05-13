@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<HTML lang="en">
+    <HEAD>
+        <TITLE>HBNB</TITLE>
+    </HEAD>
+    <BODY>
+        <H1>States</H1>
+        {% for key in data.keys()|sort(attribute='name') %}
+            <li>{{ data[key].id }}: <B>{{ data[key].name }}</B></li>
+        {% endfor %}
+    </BODY>
+</HTML>
