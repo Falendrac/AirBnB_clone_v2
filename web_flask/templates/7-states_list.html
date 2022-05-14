@@ -7,8 +7,8 @@
         <H1>States</H1>
         {% if data|length > 1 %}
             <UL>
-            {% for key in data.keys()|sort(attribute='name') %}
-                <LI>{{ data[key].id }}: <B>{{ data[key].name }}</B></LI>
+            {% for state in data|sort(attribute='name') %}
+                <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
             {% endfor %}
             </UL>
         {% endif %}

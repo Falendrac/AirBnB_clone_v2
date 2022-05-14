@@ -19,10 +19,10 @@ def teardown(exception):
 @app.route('/states_list', strict_slashes=False)
 def states_list():
     '''Display all state in HTML page'''
-    data_state = {}
+    data_state = []
     for key in data.keys():
         if isinstance(data[key], State):
-            data_state[key] = data[key]
+            data_state.append(data[key])
     return render_template('7-states_list.html', data=data_state)
 
 
