@@ -12,6 +12,7 @@ data = storage.all()
 
 @app.teardown_appcontext
 def teardown(exception):
+    '''Close the current sqlalchemy session'''
     storage.close()
 
 
