@@ -8,7 +8,7 @@
         {% if data|length > 1 %}
             <UL>
             {% for state in data|sort(attribute='name') %}
-                <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+                    <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
             {% endfor %}
             </UL>
         {% endif %}
