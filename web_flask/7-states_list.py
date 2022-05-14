@@ -21,7 +21,7 @@ def states_list():
     data = storage.all(State)
     data_state = []
     for key, value in data.items():
-        data_state.append(data[key])
+        data_state.append(value)
     return render_template('7-states_list.html', data=data_state)
 
 
