@@ -18,19 +18,20 @@ def teardown(exception):
 @app.route('/states', strict_slashes=False)
 def states():
     '''Display all state in HTML page'''
-    data_state = {}
-    for key in data.keys():
-        if isinstance(data[key], State):
-            data_state[key] = data[key]
+    data = storage.all(State)
+    data_state = []
+    for key, value in data.items():
+        data_state.append(value)
     return render_template('9-states.html', data=data_state)
 
 @app.route('/states/<id>', strict_slashes=False)
 def states_by_id(id):
     '''Display one state by id'''
-    data_state = {}
-    for key in data.keys():
-        if data[key].id == id:
-            data_state[key] = data[key]
+    data = storage.all(State)
+    data_state = []
+    for key, value in data.items():
+        if value.id == id:
+            data_state.append(value)
     return render_template('9-states.html', data=data_state)
 
 
