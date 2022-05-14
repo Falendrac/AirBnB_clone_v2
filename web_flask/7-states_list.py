@@ -7,7 +7,6 @@ from flask import Flask, escape, request, render_template
 from models import storage
 from models.state import State
 app = Flask(__name__)
-data = storage.all()
 
 
 @app.teardown_appcontext
@@ -19,11 +18,10 @@ def teardown(exception):
 @app.route('/states_list', strict_slashes=False)
 def states_list():
     '''Display all state in HTML page'''
+    data = storage.all(State)
     data_state = []
-    for key in data.keys():
-        if isinstance(data[key], State):
-            data_state.append(data[key])
-    data_state = data_state.sort()
+    for key, value in data.items():
+        data_state.append(data[key])
     return render_template('7-states_list.html', data=data_state)
 
 
