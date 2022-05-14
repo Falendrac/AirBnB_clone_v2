@@ -7,7 +7,7 @@
         {% if data %}
             <H1>State: {{ data.name }}</H1>
             <H3>Cities:</H3>
-            {% if data.cities|length > 0 %}
+            {% if data.cities|length > 1 %}
                 <UL>
                     {% for city in data.cities|sort(attribute='name') %}
                         <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
