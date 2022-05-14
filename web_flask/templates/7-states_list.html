@@ -6,11 +6,11 @@
     <BODY>
         <H1>States</H1>
         {% if data|length > 1 %}
-            <UL>
-                {% for state in data|sort(attribute='name') %}
-                        <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
-                {% endfor %}
-            </UL>
+        <UL>
+            {% for state in data|sort(attribute='name') %}
+                <LI>{{ state.id }}: <B>{{ state.name }}</B></LI>
+            {% endfor %}
+        </UL>
         {% endif %}
     </BODY>
 </HTML>
