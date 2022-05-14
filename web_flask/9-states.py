@@ -22,7 +22,7 @@ def states():
     data_state = []
     for key, value in data.items():
         data_state.append(value)
-    return render_template('9-states.html', data=data_state)
+    return render_template('7-states_list.html', data=data_state)
 
 
 @app.route('/states/<id>', strict_slashes=False)
