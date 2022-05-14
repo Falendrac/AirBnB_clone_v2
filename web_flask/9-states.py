@@ -24,6 +24,7 @@ def states():
         data_state.append(value)
     return render_template('9-states.html', data=data_state)
 
+
 @app.route('/states/<id>', strict_slashes=False)
 def states_by_id(id):
     '''Display one state by id'''
