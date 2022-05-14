@@ -19,14 +19,14 @@ def teardown(exception):
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb():
     '''Display hbnb'''
-    data_state = {}
-    for key in data.keys():
-        if isinstance(data[key], State):
-            data_state[key] = data[key]
-    data_amenities = {}
-    for key in data.keys():
-        if isinstance(data[key], Amenity):
-            data_amenities[key] = data[key]
+    data = storage.all(State)
+    data_state = []
+    for key, value in data.items():
+        data_state.append(value)
+    data = storage.all(Amenity)
+    data_amenities = []
+    for key, value in data.items():
+        data_amenities.append(value)
     return render_template('10-hbnb_filters.html', data_state=data_state, data_amenities=data_amenities)
 
 

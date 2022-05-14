@@ -25,14 +25,14 @@
                     <h4>&nbsp;</h4>
 
                     <ul class="popover">
-                        {% for key in data_state.keys()|sort(attribute='name') %}
-                        <LI><h2>{{ data_state[key].name }}</h2>
-                            {% if data_state[key].cities|length > 0 %}
-                                <UL>
-                                    {% for city in data_state[key].cities|sort(attribute='name') %}
-                                        <LI>{{ city.name }}</LI>
-                                    {% endfor %}
-                                </UL>
+                        {% for state in data_state|sort(attribute='name') %}
+                        <LI><h2>{{ state.name }}</h2>
+                            {% if state.cities|length > 0 %}
+                            <UL>
+                                {% for city in state.cities|sort(attribute='name') %}
+                                    <LI>{{ city.name }}</LI>
+                                {% endfor %}
+                            </UL>
                             {% endif %}
                         </LI>
                         {% endfor %}
@@ -44,8 +44,8 @@
                     <h4>&nbsp;</h4>
 
                     <ul class="popover">
-                        {% for key in data_amenities.keys()|sort(attribute='name') %}
-                            <LI>{{ data_amenities[key].name }}</LI>
+                        {% for amenities in data_amenities|sort(attribute='name') %}
+                            <LI>{{ amenities.name }}</LI>
                         {% endfor %}
                     </ul>
 
