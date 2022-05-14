@@ -23,6 +23,7 @@ def states_list():
     for key in data.keys():
         if isinstance(data[key], State):
             data_state.append(data[key])
+    data_state = data_state.sort()
     return render_template('7-states_list.html', data=data_state)
 
 
