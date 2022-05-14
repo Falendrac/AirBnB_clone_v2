@@ -29,11 +29,10 @@ def states():
 def states_by_id(id):
     '''Display one state by id'''
     data = storage.all(State)
-    data_state = []
     for key, value in data.items():
         if value.id == id:
-            data_state.append(value)
-    return render_template('9-states.html', data=data_state)
+            return render_template('9-states.html', data=value)
+    return render_template('9-states.html', data=None)
 
 
 if __name__ == '__main__':

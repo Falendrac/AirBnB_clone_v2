@@ -7,9 +7,9 @@
         {% if data %}
             <H1>State: {{ data.name }}</H1>
             <H3>Cities:</H3>
-            {% if data[0].cities|length > 0 %}
+            {% if data.cities|length > 0 %}
                 <UL>
-                    {% for city in data[0].cities|sort(attribute='name') %}
+                    {% for city in data.cities|sort(attribute='name') %}
                         <LI>{{ city.id }}: <B>{{ city.name }}</B></LI>
                     {% endfor %}
                 </UL>
